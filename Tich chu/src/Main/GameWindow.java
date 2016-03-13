@@ -1,6 +1,10 @@
 package Main;
 
+import GameHelper.Helper;
+
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Created by Mr Hung on 3/13/2016.
@@ -10,6 +14,25 @@ public class GameWindow extends Frame implements Runnable {
     Image image;
 
     public GameWindow(){
+        this.setGame();
+        this.init();
+    }
+
+    public void setGame(){
+        this.setTitle("Tich Chu saves her grandmother");
+        this.setSize(Helper.WIDTH,Helper.HEIGHT);
+        this.setVisible(true);
+        this.setLocation(200,100);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                System.exit(0);
+            }
+        });
+    }
+
+    public void init(){
 
     }
 
