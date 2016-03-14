@@ -7,7 +7,7 @@ import java.util.Stack;
  * Created by Mr Hung on 3/14/2016.
  */
 public class GameStateManager {
-    private Stack<GameState> states;
+    public Stack<GameState> states;
 
     public GameStateManager(){
         states = new Stack<GameState>();

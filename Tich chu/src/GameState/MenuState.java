@@ -66,6 +66,17 @@ public class MenuState extends GameState {
                 currentSelection = options.length-1;
             }
         }
+        if(k == KeyEvent.VK_ENTER){
+            if(currentSelection == 0){
+                gsm.states.push(new Level1State(gsm));
+            }else if(currentSelection == 1){
+                gsm.states.push(new Help(gsm));
+            }else if(currentSelection == 2){
+                gsm.states.push(new About(gsm));
+            }else if(currentSelection == 3){
+                System.exit(0);
+            }
+        }
     }
 
     @Override
