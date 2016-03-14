@@ -6,5 +6,7 @@ package Main;
 public class Program {
     public static void main(String[] args){
         GameWindow game = new GameWindow();
+        Thread t = new Thread(game);
+        t.start();
     }
 }

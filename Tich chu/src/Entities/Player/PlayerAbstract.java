@@ -17,4 +17,6 @@ public abstract class PlayerAbstract extends GameObject {
     public void draw(Graphics g) {
 
     }
+
+    public abstract void move();
 }
