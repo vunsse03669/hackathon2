@@ -46,9 +46,12 @@ public class MenuState extends GameState {
             }else{
                 g.setColor(Color.green.WHITE);
             }
-
-            g.setFont(new Font("Arial",Font.PLAIN,50));
-            g.drawString(options[i], Helper.WIDTH/2-100, Helper.HEIGHT/2 - 100 + i*100);
+            
+            //DaiTQ
+            //Center Menu and change Font
+            g.setFont(new Font("Arial Black",Font.PLAIN,50));
+            int a = g.getFontMetrics().stringWidth(options[i]);
+            g.drawString(options[i], Helper.WIDTH / 2 - a / 2, Helper.HEIGHT / 2 - 100 + i * 100);
 
         }
     }
