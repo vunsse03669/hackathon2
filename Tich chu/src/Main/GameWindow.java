@@ -45,10 +45,12 @@ public class GameWindow extends Frame implements Runnable, KeyListener {
 
     public void init(){
         gsm = new GameStateManager();
+        GameManager.getInstance().setWindowWidth(1600);
+        GameManager.getInstance().setWindowHeight(900);
     }
 
-    public void tick(){
-        gsm.tick();
+    public void update(){
+        gsm.update();
     }
 
     @Override
@@ -61,7 +63,7 @@ public class GameWindow extends Frame implements Runnable, KeyListener {
     @Override
     public void run() {
         while(isRunning){
-
+            gsm.update();
             repaint();
             try {
                 Thread.sleep(Helper.FPS);
@@ -86,7 +88,7 @@ public class GameWindow extends Frame implements Runnable, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-
+        gsm.keyTyped(e.getKeyCode());
     }
 
     @Override

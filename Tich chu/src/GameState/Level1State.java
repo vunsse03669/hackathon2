@@ -1,7 +1,9 @@
 package GameState;
 
 import GameHelper.Helper;
+
 import TileMap.TileMap;
+
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -15,27 +17,36 @@ public class Level1State extends GameState {
     private TileMap tileMap;
     public Level1State(GameStateManager gsm) {
         super(gsm);
-
+       // this.init();
     }
 
     @Override
     public void init() {
-        tileMap = new TileMap(32);
-        tileMap.loadTiles("Resources/TilesMap/grasstileset.gif");
-        tileMap.loadMap("Resources/Map/level1-1.map");
-        tileMap.setPosition(0,0);
+
+        tileMap = new TileMap(30);
+        tileMap.loadTiles("Resources/TilesMap/ruinstileset.gif");
+
+        tileMap.loadMap("Resources/Map/level1a.map");
+
+        tileMap.setPosition(400, 100);
+        tileMap.setBounds(
+                tileMap.getWidth() - 1 * tileMap.getTileSize(),
+                tileMap.getHeight() - 2 * tileMap.getTileSize(),
+                0, 0
+        );
+        tileMap.setTween(1);
+
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.WHITE);
-        g.fillRect(0,0, Helper.WIDTH,Helper.HEIGHT);
         tileMap.draw(g);
+
     }
 
     @Override
@@ -47,4 +58,10 @@ public class Level1State extends GameState {
     public void keyReleased(int k) {
 
     }
+
+    @Override
+    public void keyTyped(int k) {
+
+    }
+
 }

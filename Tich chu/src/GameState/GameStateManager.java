@@ -18,8 +18,8 @@ public class GameStateManager {
         states.peek().draw(g);
     }
 
-    public void tick(){
-        states.peek().tick();
+    public void update(){
+        states.peek().update();
     }
 
     public void keyPressed(int k){
@@ -28,5 +28,9 @@ public class GameStateManager {
 
     public void keyRelased(int k){
         states.peek().keyReleased(k);
+    }
+
+    public void keyTyped(int k){
+        states.peek().keyTyped(k);
     }
 }

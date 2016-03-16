@@ -33,7 +33,7 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void tick() {
+    public void update() {
 
     }
 
@@ -46,12 +46,9 @@ public class MenuState extends GameState {
             }else{
                 g.setColor(Color.green.WHITE);
             }
-            
-            //DaiTQ
-            //Center Menu and change Font
+
             g.setFont(new Font("Arial Black",Font.PLAIN,50));
-            int a = g.getFontMetrics().stringWidth(options[i]);
-            g.drawString(options[i], Helper.WIDTH / 2 - a / 2, Helper.HEIGHT / 2 - 100 + i * 100);
+            g.drawString(options[i], Helper.WIDTH/2-100, Helper.HEIGHT/2 - 100 + i*100);
 
         }
     }
@@ -71,7 +68,7 @@ public class MenuState extends GameState {
         }
         if(k == KeyEvent.VK_ENTER){
             if(currentSelection == 0){
-                gsm.states.push(new Level1State(gsm));
+                gsm.states.push(new Level2State(gsm));
             }else if(currentSelection == 1){
                 gsm.states.push(new Help(gsm));
             }else if(currentSelection == 2){
@@ -84,6 +81,11 @@ public class MenuState extends GameState {
 
     @Override
     public void keyReleased(int k) {
+
+    }
+
+    @Override
+    public void keyTyped(int k) {
 
     }
 }

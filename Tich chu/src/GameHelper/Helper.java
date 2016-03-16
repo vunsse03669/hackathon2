@@ -7,4 +7,6 @@ public class Helper {
     public static final int WIDTH = 1600;
     public static final int HEIGHT = 900;
     public static final int FPS = 1000/60;
+    public static final int PLAYER_SPEED = 3;
+    public static final int PLAYER_HP = 3;
 }
