@@ -1,3 +1,11 @@
+//65, 51, 50 with Enemy1
+//57, 36, 50 with Enemy2
+//88, 58, 50 with Enemy3
+//108, 62, 50 with Enemy4
+//144, 78, 30 with Enemy5       
+//90, 111, 70 with Enemy6
+//166, 118, 70 with Enemy7
+
 package Entities.Enemy;
 
 import Entities.Animation;
