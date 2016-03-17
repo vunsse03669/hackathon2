@@ -1,6 +1,9 @@
 package Entities.Sound;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.io.File;
 
 public class AudioPlayer {
@@ -8,8 +11,7 @@ public class AudioPlayer {
 	Clip clip;
 	public AudioPlayer(String s){
 		try{
-			AudioInputStream ais =
-					AudioSystem.getAudioInputStream(new File(s));
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new File(s));
 
 			AudioFormat baseFormat = ais.getFormat();
 			AudioFormat decodeFomat = new AudioFormat(

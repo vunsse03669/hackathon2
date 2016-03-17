@@ -6,6 +6,7 @@ import GameHelper.Helper;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
@@ -14,7 +15,7 @@ import java.io.File;
 public abstract class PlayerAbstract extends GameObject {
     protected int speed;
     protected int hp;
-
+    protected BufferedImage heart;
 
     public PlayerAbstract(double positionX, double positionY){
         this.positionX = positionX;
@@ -23,6 +24,7 @@ public abstract class PlayerAbstract extends GameObject {
         speed = Helper.PLAYER_SPEED;
         try{
             this.sprite = ImageIO.read(new File("Resources/Image/TT1.png"));
+            this.heart = ImageIO.read(new File("Resources/Image/heart.png"));
         }catch(Exception e){}
     }
     @Override
@@ -50,5 +52,9 @@ public abstract class PlayerAbstract extends GameObject {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 }

@@ -1,15 +1,24 @@
 package Entities.Enemy;
 
+import java.util.Vector;
+
 /**
- * Created by chtnnnmtgkyp on 3/16/2016.
+ * Created by Mr Hung on 3/16/2016.
  */
 public class EnemyManager {
-    private BeeBrown beeBrown;
+    private Vector<EnemyAbstract> vectorEnemy;
     private static EnemyManager sharePointer;
 
     private EnemyManager(){
-        beeBrown = new BeeBrown(200,200);
+        vectorEnemy = new Vector<>();
+        vectorEnemy.add(new Dragon(1200,100));
+        vectorEnemy.add(new Dragon(1100,300));
+        vectorEnemy.add(new Dragon(1200,500));
+        vectorEnemy.add(new Dragon(1400,600));
+        vectorEnemy.add(new Dragon(1500,700));
+
     }
+
     public static EnemyManager getInstance(){
         if(sharePointer == null){
             sharePointer = new EnemyManager();
@@ -17,8 +26,7 @@ public class EnemyManager {
         return sharePointer;
     }
 
-    public BeeBrown getBeeBrown() {
-        return beeBrown;
+    public Vector<EnemyAbstract> getVectorEnemy() {
+        return vectorEnemy;
     }
-
 }

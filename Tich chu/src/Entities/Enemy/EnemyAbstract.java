@@ -1,6 +1,8 @@
 package Entities.Enemy;
 
 import Entities.GameObject;
+import Entities.Player.Player;
+import Entities.Player.PlayerManager;
 import GameHelper.Helper;
 
 import javax.imageio.ImageIO;
@@ -12,18 +14,23 @@ import java.io.File;
  */
 public abstract class EnemyAbstract extends GameObject {
     protected int speed;
-
+    protected double imageWidth;
+    protected double imageHeight;
     public EnemyAbstract(double positionX, double positionY){
         this.positionX = positionX;
         this.positionY = positionY;
         speed = Helper.ENEMY_SPEED;
-        try{
-            this.sprite = ImageIO.read(new File("Resources/Image/DragonFly.png"));
-        }catch(Exception e){}
+
     }
     @Override
     public void update() {
         this.move();
+        if(collisionPlayer()){
+            int hp = PlayerManager.getInstance().getPlayerFly().getHp();
+            double dx = PlayerManager.getInstance().getPlayerFly().getPositionX();
+            PlayerManager.getInstance().getPlayerFly().setHp(hp-1);
+            PlayerManager.getInstance().getPlayerFly().setPositionX(dx-50);
+        }
     }
 
     @Override
@@ -39,5 +46,16 @@ public abstract class EnemyAbstract extends GameObject {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public boolean collisionPlayer(){
+
+        Rectangle rectPlayer = new Rectangle((int) PlayerManager.getInstance().getPlayerFly().getPositionX(),
+                (int)PlayerManager.getInstance().getPlayerFly().getPositionY(),
+                (int)PlayerManager.getInstance().getPlayerFly().getWidth(),
+                (int)PlayerManager.getInstance().getPlayerFly().getHeight());
+        Rectangle rectEnemy = new Rectangle((int)this.positionX,(int)this.positionY,(int)imageWidth,(int)imageHeight);
+
+        return rectEnemy.intersects(rectPlayer);
     }
 }

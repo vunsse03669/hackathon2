@@ -38,4 +38,12 @@ public abstract class GameObject {
     public BufferedImage getSprite() {
         return sprite;
     }
+
+    public double getWidth(){
+        return this.sprite.getWidth();
+    }
+
+    public double getHeight(){
+        return this.sprite.getHeight();
+    }
 }
