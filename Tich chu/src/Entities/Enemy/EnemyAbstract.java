@@ -16,6 +16,7 @@ public abstract class EnemyAbstract extends GameObject {
     protected int speed;
     protected double imageWidth;
     protected double imageHeight;
+    protected int hp;
     public EnemyAbstract(double positionX, double positionY){
         this.positionX = positionX;
         this.positionY = positionY;
@@ -46,6 +47,22 @@ public abstract class EnemyAbstract extends GameObject {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public double getImageWidth() {
+        return imageWidth;
+    }
+
+    public double getImageHeight() {
+        return imageHeight;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     public boolean collisionPlayer(){

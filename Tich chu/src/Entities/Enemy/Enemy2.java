@@ -1,10 +1,3 @@
-/*
-* DaiTQ.
-* Minion di chuyen tu phai qua trai theo hinh Sin.
-* Yeu cau dat lai vi tri va thoi gian xuat hien minion cho phu hop.
-* */
-
-
 package Entities.Enemy;
 
 import Entities.Animation;
@@ -13,23 +6,20 @@ import GameHelper.Helper;
 import java.awt.*;
 
 /**
- * Created by Quang Đại on 16/3/2016.
+ * Created by Mr Hung on 3/17/2016.
  */
-public class Enemy2 extends EnemyAbstract {
+public class Enemy2  extends EnemyAbstract {
     Animation anim, anim1;
-    int speedX = 1;
+    int speedX = 3;
     int speedY = 0;
     int e = 0;
 
-    public Enemy2() {
+    public Enemy2(double positionX, double positionY) {
+        super(positionX, positionY);
         anim = new Animation(Helper.ENEMY2, 57, 36, 50);
-        //66, 51, 50 with Enemy1
-        //55, 36, 50 with Enemy2
-        //88, 58, 50 with Enemy3
-        //108, 62, 50 with Enemy4
-        //Yeu cau sua lai vi tri va thoi gian xuat hien.
-        setPositionX(500);
-        setPositionY(100);
+        imageWidth = 57;
+        imageHeight = 36;
+        hp = 1;
     }
 
     public void move() {
@@ -37,12 +27,6 @@ public class Enemy2 extends EnemyAbstract {
         e++;
         this.positionY += 2 * Math.sin(e * Math.PI/96);
         this.positionX -= speedX;
-    }
-
-    @Override
-    public void update() {
-        this.move();
-
     }
 
     @Override

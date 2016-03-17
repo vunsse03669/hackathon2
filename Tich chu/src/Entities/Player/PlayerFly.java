@@ -3,6 +3,11 @@ package Entities.Player;
 
 import Entities.Animation;
 import Entities.Sound.AudioPlayer;
+import Entities.Weapon.BulletAbstract;
+import Entities.Weapon.BulletManager;
+import Entities.Weapon.BulletPlayerLv1;
+import GameHelper.Helper;
+import GameState.Help;
 import Main.GameManager;
 
 import java.awt.*;
@@ -23,7 +28,7 @@ public class PlayerFly extends PlayerAbstract {
         super(positionX, positionY);
         speedX = 0;
         speedY = 6;
-        animation = new Animation("Resources/Image/player.png",216,200,100);
+        animation = new Animation(Helper.PLAYER_FLY,216,200,100);
        // sound = new HashMap<String,AudioPlayer>();
       //  sound.put("jump",new AudioPlayer("Resources/Music/level1.mp3"));
     }
@@ -35,7 +40,6 @@ public class PlayerFly extends PlayerAbstract {
 
         if(isFly){
             positionY -= speedY;
-            //positionX += this.speedX;
         }else{
             positionY += this.speedY-2;
         }
@@ -54,6 +58,10 @@ public class PlayerFly extends PlayerAbstract {
             isFly = false;
         }
 
+        if(k == KeyEvent.VK_Z){
+            if(count <= 5){
+                this.shot();}
+        }
     }
 
     public void draw(Graphics g){
@@ -61,6 +69,11 @@ public class PlayerFly extends PlayerAbstract {
         for(int i = 0; i < this.hp; i++){
             g.drawImage(this.heart,20 + i*32,50,null);
         }
+        for(BulletAbstract bullet : BulletManager.getInstance().getVectorBulelt()){
+            bullet.draw(g);
+        }
+        g.setFont(new Font("Arial Black",Font.PLAIN,20));
+        g.drawString("Score: "+this.score, Helper.WIDTH - 200, 100);
     }
 
     @Override
@@ -70,8 +83,10 @@ public class PlayerFly extends PlayerAbstract {
     }
 
     @Override
-    public void keyTyped(int k) {
-        if(k == KeyEvent.VK_A)
-            System.out.println("xxx");
+    public void keyTyped(int k) {}
+
+    @Override
+    public void shot() {
+        BulletManager.getInstance().getVectorBulelt().add(new BulletPlayerLv1(this.positionX+getWidth()+20,this.positionY +getHeight()/2+20));
     }
 }

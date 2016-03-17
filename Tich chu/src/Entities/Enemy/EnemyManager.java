@@ -11,11 +11,18 @@ public class EnemyManager {
 
     private EnemyManager(){
         vectorEnemy = new Vector<>();
-        vectorEnemy.add(new Dragon(1200,100));
-        vectorEnemy.add(new Dragon(1100,300));
-        vectorEnemy.add(new Dragon(1200,500));
-        vectorEnemy.add(new Dragon(1400,600));
-        vectorEnemy.add(new Dragon(1500,700));
+        vectorEnemy.add(new Dragon(3000,200));
+        vectorEnemy.add(new Dragon(3500,800));
+        vectorEnemy.add(new Dragon(4000,500));
+
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++){
+                vectorEnemy.add(new Enemy3(500 +j*100,100 + i*100));
+                vectorEnemy.add(new Enemy2(2000+j*100,100 + i*100));
+                vectorEnemy.add(new Enemy1(5500+j*100,100 + i*100));
+            }
+        }
+
 
     }
 

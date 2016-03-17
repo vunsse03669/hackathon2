@@ -21,7 +21,7 @@ public class MenuState extends GameState {
     public MenuState(GameStateManager gsm) {
         super(gsm);
         try {
-            sprite = ImageIO.read(new File("Resources/Image/background.jpg"));
+            sprite = ImageIO.read(new File(Helper.MENU_STATE));
         } catch (IOException e) {
             e.printStackTrace();
         }

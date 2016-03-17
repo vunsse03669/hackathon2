@@ -16,9 +16,10 @@ public class Dragon extends EnemyAbstract {
 
     public Dragon(double positionX, double positionY) {
         super(positionX, positionY);
-        animation = new Animation("Resources/Image/DragonFly.png",106,89,100);
+        animation = new Animation(Helper.DRAGON,106,89,100);
         imageWidth = 106;
         imageHeight = 89;
+        hp = 5;
     }
 
     @Override

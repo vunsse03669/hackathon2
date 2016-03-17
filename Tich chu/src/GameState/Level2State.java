@@ -23,13 +23,12 @@ public class Level2State extends GameState {
     private PlayerFly player;
     Vector<EnemyAbstract> vectorEnemy;
 
-
     public Level2State(GameStateManager gsm) {
         super(gsm);
         player = PlayerManager.getInstance().getPlayerFly();
         vectorEnemy = EnemyManager.getInstance().getVectorEnemy();
         try{
-            this.background = ImageIO.read(new File("Resources/TilesMap/lv1.png"));
+            this.background = ImageIO.read(new File(Helper.BACKGROUND_LV1));
 
         }catch(Exception e){}
     }

@@ -1,5 +1,7 @@
 package GameState;
 
+import GameHelper.Helper;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -15,7 +17,7 @@ public class Help extends GameState {
     public Help(GameStateManager gsm) {
         super(gsm);
         try {
-            sprite = ImageIO.read(new File("Resources/Image/help.jpg"));
+            sprite = ImageIO.read(new File(Helper.HELP_STATE));
         } catch (IOException e) {
             e.printStackTrace();
         }
