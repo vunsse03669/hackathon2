@@ -16,6 +16,10 @@ public class Helper {
     public static final String ENEMY1 = "Resources/Image/Enemy1.png";
     public static final String ENEMY2 = "Resources/Image/Enemy2.png";
     public static final String ENEMY3 = "Resources/Image/Enemy3.png";
+    public static final String ENEMY4 = "Resources/Image/Enemy4.png";
+    public static final String ENEMY5 = "Resources/Image/Enemy5.png";
+    public static final String ENEMY6 = "Resources/Image/Enemy6.png";
+    public static final String ENEMY7 = "Resources/Image/Enemy7.png";
     public static final String DRAGON = "Resources/Image/DragonFly.png";
     public static final String BACKGROUND_LV1 = "Resources/TilesMap/lv1.png";
     public static final String ABOUT_STATE = "Resources/Image/about.jpg";
